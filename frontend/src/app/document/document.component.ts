@@ -13,10 +13,10 @@ export class DocumentComponent implements OnInit {
 
   title = 'fileUpload';
   document = '';
-  multiplefiles:any=[];
-  attachmentList:any = [];
+  multiplefiles: any = [];
+  attachmentList: any = [];
   value: any;
-  progress:any;
+  progress: any;
 
 
 
@@ -24,14 +24,14 @@ export class DocumentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  selectDocument(event:any) {
-    this.document=event.target.files[0];
+  selectDocument(event: any) {
+    this.document = event.target.files[0];
   }
 
-  selectMultipleDocument(event:any){
-      this.multiplefiles=event.target.files;
-    }
-  
+  selectMultipleDocument(event: any) {
+    this.multiplefiles = event.target.files;
+  }
+
 
   // onSubmit() {
   //   const formData = new FormData();
@@ -44,77 +44,77 @@ export class DocumentComponent implements OnInit {
     const formData = new FormData();
     formData.append('document', this.document);
     this.userService.document(formData).subscribe(
-      event=>{
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress = Math.round(100 * event.loaded /event.total!);
-        this.value=this.progress
-      }else if(event.type==HttpEventType.Response){
-        console.log(event.body)
-      }
+      event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress = Math.round(100 * event.loaded / event.total!);
+          this.value = this.progress
+        } else if (event.type == HttpEventType.Response) {
+          console.log(event.body)
+        }
 
-    }
+      }
     );
   }
 
-  onMultipleSubmit(){
+  onMultipleSubmit() {
     const formData = new FormData();
 
 
 
-    for(let files of this.multiplefiles){
+    for (let files of this.multiplefiles) {
       formData.append('document', files);
     }
 
-    
+
 
     this.userService.multidocument(formData).subscribe(
-      event=>{
+      event => {
         if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded /event.total!);
-          this.value=this.progress
-        }else if(event.type==HttpEventType.Response){
+          this.progress = Math.round(100 * event.loaded / event.total!);
+          this.value = this.progress
+        } else if (event.type == HttpEventType.Response) {
           console.log(event.body)
         }
       })
-    
+
   }
 
 
-  getdoc(){
+  getdoc() {
     this.userService.getdocument().subscribe
   }
 
 
-  download(document:any){
-   var filename = this.attachmentList.document;
+  download(document: any) {
+    var filename = this.attachmentList.document;
 
     this.userService.downloadFile(filename)
-    .subscribe(
-        // data => saveAs(data, filename),
-        // error => console.error(error)
+      .subscribe(
+      // data => saveAs(data, filename),
+      // error => console.error(error)
     );
-}
-
-
-logout() {
-  this.userService.logOut().subscribe(
-    data => {
-      console.log(data);
-      this.router.navigate(['/']);
-    },
-    //err => this.errorHandler(err, 'Something went wrong'),
-    //() => {
-     // this.jwtService.destroyToken();
-     // this.router.navigate(['/login']);
-    //}
-  );
-}
-
-
-  color='primary';
-  mode:any='determinate';
-
   }
+
+
+  logout() {
+    this.userService.logOut().subscribe(
+      data => {
+        console.log(data);
+        this.router.navigate(['/']);
+      },
+      //err => this.errorHandler(err, 'Something went wrong'),
+      //() => {
+      // this.jwtService.destroyToken();
+      // this.router.navigate(['/login']);
+      //}
+    );
+  }
+
+
+  color = 'primary';
+  mode: any = 'determinate';
+
+}
 
 
 

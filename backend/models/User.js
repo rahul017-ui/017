@@ -20,9 +20,9 @@ const UserSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  email:{
-type:String,
-required: true,
+  email: {
+    type: String,
+    required: true,
   },
   createdAt: {
     type: Date,

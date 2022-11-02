@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   isResultsLoading: false | undefined;
   snackBar: any;
 
-  constructor(private userservice:UserService ,private router:Router) { }
+  constructor(private userservice: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,11 +21,12 @@ export class LoginComponent implements OnInit {
 
     this.userservice.googleAuth().subscribe(
       data => {
-      console.log(data);
-      this.router.navigate(["/fileupload"])
-   }
-  )}
-  
+        console.log(data);
+        this.router.navigate(["/fileupload"])
+      }
+    )
+  }
+
   googleAuthHandler() {
     this.userservice.googleAuth().subscribe(
       data => {
@@ -46,12 +47,12 @@ export class LoginComponent implements OnInit {
       duration: 2000
     });
   }
- 
 
 
 
 
-  
+
+
 
 
 }

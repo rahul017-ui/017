@@ -1,9 +1,9 @@
-const PassportJWT =require('passport-jwt');
-const passport =require('passport');
-const devConfig=require('../config/development');
-const User =require('../models/User');
+const PassportJWT = require('passport-jwt');
+const passport = require('passport');
+const devConfig = require('../config/development');
+const User = require('../models/User');
 
-module.exports= configureJWTStrategy = () => {
+module.exports = configureJWTStrategy = () => {
   const opts = {};
   opts.jwtFromRequest = PassportJWT.ExtractJwt.fromAuthHeaderAsBearerToken();
   opts.secretOrKey = devConfig.secret;

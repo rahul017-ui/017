@@ -4,8 +4,8 @@ import { DocumentComponent } from './document/document.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path:'' ,component:LoginComponent},
-  {path:'fileupload',component:DocumentComponent}
+  { path: '', component: LoginComponent },
+  { path: 'fileupload', component: DocumentComponent }
 ];
 
 @NgModule({

@@ -7,43 +7,40 @@
 
 <div class="whole">
   <mat-card class="card">
-<h1>Single file</h1>
-<div >
+    <h1>Single file</h1>
+    <div>
 
-  <input type="file" name="document" (change)="selectDocument($event)" />
+      <input type="file" name="document" (change)="selectDocument($event)" />
 
-  <button class="doc" type="submit" (click)="onSubmit()">Upload
-  </button></div>
-  <div>
-  <h1>Multiple Files</h1>
-  <input type="file" name="multiplefiles" multiple
-    (change)="selectMultipleDocument($event)" />
-    <button class="doc" type="submit" (click)="onMultipleSubmit()">Multiple Upload</button></div>
+      <button class="doc" type="submit" (click)="onSubmit()">Upload
+      </button>
+    </div>
+    <div>
+      <h1>Multiple Files</h1>
+      <input type="file" name="multiplefiles" multiple (change)="selectMultipleDocument($event)" />
+      <button class="doc" type="submit" (click)="onMultipleSubmit()">Multiple Upload</button>
+    </div>
 
     <button class="btn" type="submit" (click)="download(document)">Download</button>
 
-  
 
 
 
-  <div>
-   <h1 class="btnn" mat-raised-button color="primary">
-      UploadProgress</h1>
-     Progess = {{progress}} %
-     
-     <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value">
-    </mat-progress-bar> 
-    <br>
 
-    <!-- <progress-bar [progress]="100" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}">
+    <div>
+      <h1 class="btnn" mat-raised-button color="primary">
+        UploadProgress</h1>
+      Progess = {{progress}} %
+
+      <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value">
+      </mat-progress-bar>
+      <br>
+
+      <!-- <progress-bar [progress]="100" [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}">
     </progress-bar>  -->
-<!-- <progress-bar [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}" >
+      <!-- <progress-bar [color-degraded]="{'0': '#00cbcb',  '15': '#f9c3d3', '25': '#fd8c8e'}" >
 
     </progress-bar> -->
-  
-</div>
-</mat-card>
 
-
-
-  
+    </div>
+  </mat-card>
